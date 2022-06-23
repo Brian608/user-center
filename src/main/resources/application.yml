@@ -7,5 +7,13 @@ spring:
       # >= 6.x: com.mysql.cj.jdbc.Driver
       # <= 5.x: com.mysql.jdbc.Driver
       driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+#        namespace: d0c13a1d-566e-4e4d-95d7-995f51ca4ce5
+#        cluster-name: CHENGDU
+  application:
+    name: user-center
 server:
   port: 11080
