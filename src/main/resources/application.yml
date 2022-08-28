@@ -11,9 +11,27 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
-#        namespace: d0c13a1d-566e-4e4d-95d7-995f51ca4ce5
-#        cluster-name: CHENGDU
+       # namespace: d0c13a1d-566e-4e4d-95d7-995f51ca4ce5
+       # cluster-name: CHENGDU
+    stream:
+      rocketmq:
+        binder:
+          name-server: 127.0.0.1:9876
+      bindings:
+        input:
+          destination : stream-test-topic
+          group: binder-group
+        my-input:
+          destination: stream-my-topic
+          #如果用的是rocketMQ，一定要设置
+          #如果用的是其他MQ，可留空
+          group: my-group
   application:
     name: user-center
 server:
   port: 11080
+rocketmq:
+  name-server: 127.0.0.1:9876
+logging:
+  level:
+   com.alibaba.nacos: error
